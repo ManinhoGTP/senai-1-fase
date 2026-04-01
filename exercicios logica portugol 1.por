@@ -163,11 +163,13 @@ programa {
          //gael e seus jarés
          escreva("\n\n    Gael e seus jarés")
     
-    inteiro jares = 365
-    inteiro caminhoes = jares / 50
-    real jaresPrecos = caminhoes * 450
-    real jaresLucro = (caminhoes * 50) * 90
-    escreva("\nCusto total para transporte de jarés: R$", jaresPrecos, "\nValor de venda de jarés: R$", jaresLucro, "\nLucro total de venda de jarés: R$", jaresLucro - jaresPrecos)
+    inteiro caminhoes
+    escreva("\nQuantos caminhões: ")
+    leia(caminhoes)
+    real lucroPorCaminhao = (90*50) - 450
+    real lucroTotalCaminhao = lucroPorCaminhao * caminhoes
+    escreva("Lucro total da temporada foi de: R$", lucroTotalCaminhao)
+    
     
 
 
