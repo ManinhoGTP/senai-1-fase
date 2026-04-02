@@ -165,12 +165,12 @@ programa {
          //gael e seus jarés
          escreva("\n\n    Gael e seus jarés")
     
-    //inteiro caminhoes
-    //escreva("\nQuantos caminhões: ")
-    //leia(caminhoes)
-    //real lucroPorCaminhao = (90*50) - 450
-    //real lucroTotalCaminhao = lucroPorCaminhao * caminhoes
-    //escreva("Lucro total da temporada foi de: R$", lucroTotalCaminhao)
+    inteiro caminhoes
+    escreva("\nQuantos caminhões: ")
+    leia(caminhoes)
+    real lucroPorCaminhao = (90*50) - 450
+    real lucroTotalCaminhao = lucroPorCaminhao * caminhoes
+    escreva("Lucro total da temporada foi de: R$", lucroTotalCaminhao)
     
     
 
@@ -181,9 +181,9 @@ programa {
     cadeia prompt
     
     escreva("\nEscreva seu prompt: ")
-    //leia(prompt)
-    //inteiro custoDoPrompt = txt.numero_caracteres(prompt) + 5
-    //escreva("O valor do seu prompt é: ", custoDoPrompt, " Tokens")
+    leia(prompt)
+    inteiro custoDoPrompt = txt.numero_caracteres(prompt) + 5
+    escreva("O valor do seu prompt é: ", custoDoPrompt, " Tokens")
 
     
        //Mano juca e sua poupança
@@ -207,11 +207,11 @@ programa {
       //Pet shop ron bernardo e o preço da ração
       escreva("\n\n   Pet shop ron bernardo e o preço da ração")
 
-    //real pesoDaRacaoGramas = 1
-    //escreva("\nQual a quantia de ração em gramas que voce deseja comprar?\n")
-    //leia(pesoDaRacaoGramas)
-    //real valorDaRacao = pesoDaRacaoGramas / 100
-    //escreva("O custo da ração então é: R$", valorDaRacao)
+    real pesoDaRacaoGramas = 1
+    escreva("\nQual a quantia de ração em gramas que voce deseja comprar?\n")
+    leia(pesoDaRacaoGramas)
+    real valorDaRacao = pesoDaRacaoGramas / 100
+    escreva("O custo da ração então é: R$", valorDaRacao)
 
 
                   //  3  \\
@@ -220,8 +220,8 @@ programa {
 
     inteiro denisPreco = 500
     num = u.sorteia(2, 10)
-    inteiro desenvolvimentoPreco = 350 * num + 500
-    inteiro desenvolvimentoLucro = desenvolvimentoPreco - 500
+    inteiro desenvolvimentoPreco = 350 * num + denisPreco
+    inteiro desenvolvimentoLucro = desenvolvimentoPreco - denisPreco
 
     escreva("\nHoras estimadas de desenvolvimento: ", num)
     escreva("\nPreço por hora trabalhada é R$350")
