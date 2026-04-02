@@ -1,5 +1,7 @@
 programa {
   inclua biblioteca Texto --> txt
+  inclua biblioteca Util --> u
+  inteiro num
   funcao inicio() {
 
        // Telles Transporte e o preço do frete
@@ -163,12 +165,12 @@ programa {
          //gael e seus jarés
          escreva("\n\n    Gael e seus jarés")
     
-    inteiro caminhoes
-    escreva("\nQuantos caminhões: ")
-    leia(caminhoes)
-    real lucroPorCaminhao = (90*50) - 450
-    real lucroTotalCaminhao = lucroPorCaminhao * caminhoes
-    escreva("Lucro total da temporada foi de: R$", lucroTotalCaminhao)
+    //inteiro caminhoes
+    //escreva("\nQuantos caminhões: ")
+    //leia(caminhoes)
+    //real lucroPorCaminhao = (90*50) - 450
+    //real lucroTotalCaminhao = lucroPorCaminhao * caminhoes
+    //escreva("Lucro total da temporada foi de: R$", lucroTotalCaminhao)
     
     
 
@@ -205,10 +207,27 @@ programa {
       //Pet shop ron bernardo e o preço da ração
       escreva("\n\n   Pet shop ron bernardo e o preço da ração")
 
-    real pesoDaRacaoGramas = 1
-    escreva("\nQual a quantia de ração em gramas que voce deseja comprar?\n")
-    leia(pesoDaRacaoGramas)
-    real valorDaRacao = pesoDaRacaoGramas / 100
-    escreva("O custo da ração então é: R$", valorDaRacao)
+    //real pesoDaRacaoGramas = 1
+    //escreva("\nQual a quantia de ração em gramas que voce deseja comprar?\n")
+    //leia(pesoDaRacaoGramas)
+    //real valorDaRacao = pesoDaRacaoGramas / 100
+    //escreva("O custo da ração então é: R$", valorDaRacao)
+
+
+                  //  3  \\
+       //Junin e seus freela
+       escreva("\n\n   Junin e seus freela")
+
+    inteiro denisPreco = 500
+    num = u.sorteia(2, 10)
+    inteiro desenvolvimentoPreco = 350 * num + 500
+    inteiro desenvolvimentoLucro = desenvolvimentoPreco - 500
+
+    escreva("\nHoras estimadas de desenvolvimento: ", num)
+    escreva("\nPreço por hora trabalhada é R$350")
+    escreva("\nPreço a pagar pelo desenvolvimento é de R$", desenvolvimentoPreco)
+    escreva("\nLucro total foi de R$", desenvolvimentoLucro)
+
+    
   }
 }
