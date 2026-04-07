@@ -207,11 +207,14 @@ programa {
       //Pet shop ron bernardo e o preço da ração
       escreva("\n\n   Pet shop ron bernardo e o preço da ração")
 
+    //Variáveis
     real precoRacaoKilo = 10
     real pesoDaRacaoGramas = 1
+    real valorDaRacao = (pesoDaRacaoGramas / 1000) * precoRacaoKilo 
+
+    //Input & Output
     escreva("\nQual a quantia de ração em gramas que voce deseja comprar?\n")
     leia(pesoDaRacaoGramas)
-    real valorDaRacao = (pesoDaRacaoGramas / 1000) * precoRacaoKilo 
     escreva("O custo da ração então é: R$", valorDaRacao)
 
 
