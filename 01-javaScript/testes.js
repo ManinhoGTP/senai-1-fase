@@ -15,3 +15,4 @@ let nota1
 nota1 = prompt("Informe sua nota: ")
 nota1 ++    
 alert(nota1)
+//teste
