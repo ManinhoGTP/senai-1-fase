@@ -1,3 +1,4 @@
+//=================================
 // alert("Olá mundo!")
 // alert("Segunda menssagem")
 
@@ -11,7 +12,10 @@
 // nome = prompt("Digite seu nome: ")
 // alert("Nome digitado: " + nome)
 
-let nota1 
-nota1 = prompt("Informe sua nota: ")
-nota1 ++    
-alert(nota1)
+// let nota1 
+// nota1 = prompt("Informe sua nota: ")
+// nota1 = Number(nota1)
+// nota1 = nota1 + 1
+// alert(nota1)
+
+//=================================
