@@ -9,4 +9,4 @@ dias = Number(prompt("Dias trabalhados: "))
 salarioDiario = salario / dias
 
  //Output
-alert("Salário diário: R$ " + salarioDiario.toFixed(2))
+alert("Salário diário: R$ " + salarioDiario.toFixed(2) + " Pila")
