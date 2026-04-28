@@ -13,5 +13,5 @@ function calcularPrecoBrique(){
     alert("Com base na política de preços de romero, a obra deve ser vendida à R$ " + valorRevenda.toFixed(2))
     console.log("Com base na política de preços de romero, a obra deve ser vendida à R$ " + valorRevenda.toFixed(2))
 
-    document.getElementById("resultado").innerHTML = "Valor revenda: " + valorRevenda
+    document.getElementById("resultado").innerHTML = "Valor revenda: " + valorRevenda.toFixed(2)
 }   
