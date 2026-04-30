@@ -5,7 +5,13 @@
  }
  body{
     background-color: antiquewhite;
+    
  }
  button{
     margin: 5px;
+    border-radius: 5px;
+ }
+ #botao{
+   
+
  }
