@@ -41,6 +41,3 @@ function verificarProvisoes(){
 
     }
 }
-
-
-fnjkdafjdashfjsa
