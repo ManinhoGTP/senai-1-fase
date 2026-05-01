@@ -4,14 +4,25 @@
     text-align: center;
  }
  body{
-    background-color: antiquewhite;
+    background-image: linear-gradient();
+    background-attachment:fixed;
     
  }
  button{
     margin: 5px;
     border-radius: 5px;
  }
- #botao{
-   
+ #linha1{
+   width: 36.068%;
+   margin-right: 100%;
+ }
+ #linha2{
+   width: 72%;
 
+   rotate: 90deg;
+   margin-right: 50%;
+   margin-bottom: auto;
+ }
+ output{
+   
  }
