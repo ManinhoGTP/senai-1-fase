@@ -10,14 +10,21 @@
     <h1>Spoilers de css e outras coisas</h1>
     <h2>Botões mágicos de atividade:</h2>
     <hr id="linha1">
-    <hr id="linha2">
-    <button onclick="calcularPrecoBrique()", id="romero">Romero Brique</button>
-    <output id="resultadoRomero">resultado vai aparecer aqui</output>
-    <br>
-    <button onclick="verificarProvisoes()", id="ganso">Capitão ganso provisões</button>
-    <output id="resultadoGanso">resultado vai aparecer aqui</output>
+    <!-- <hr id="linha2"> -->
+     <div id="botões">
 
+    <button onclick="calcularPrecoBrique()">Romero Brique</button>
+    <button onclick="verificarProvisoes()">Capitão ganso provisões</button>
+    <button onclick="verificarIdade()">Verificar idade</button>
+    
+     </div>
+    <hr>
+    <div id="Resultados">
 
+    <h2 id="resultados">Resultado:</h2> 
+    <output id="resultado">resultado vai aparecer aqui</output>
+
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

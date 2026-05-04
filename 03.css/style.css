@@ -1,24 +1,31 @@
  h1{
-    color: darkred;
+    color:darkred;
     padding: 10px;
     text-align: center;
  }
  body{
-    background-image: linear-gradient();
+    background-image: linear-gradient(rgb(247, 227, 202), white);
     background-attachment:fixed;
     
  }
  button{
     margin: 5px;
     border-radius: 5px;
+    margin-bottom: 10px;
  }
- #linha1{
+ #botões{
+   background-color: bisque;
+ }
+ #resultados{
+   text-align: left;
+ }
+ /* #linha1{
    width: 36.068%;
    margin-right: 100%;
- }
- #linha2{
+ } */
+ /* #linha2{
    width: 72%;
    rotate: 90deg;
    margin-right: 50%;
    margin-bottom: auto;
- }
+ } */

@@ -1,4 +1,4 @@
-
+let resultado = document.getElementById("resultado")
 function calcularPrecoBrique(){
     //Variáveis
     let valorCompra, valorRevenda
@@ -10,10 +10,9 @@ function calcularPrecoBrique(){
     valorRevenda = valorCompra * 3
 
     //Output
-    alert("Com base na política de preços de romero, a obra deve ser vendida à R$ " + valorRevenda.toFixed(2))
     console.log("Com base na política de preços de romero, a obra deve ser vendida à R$ " + valorRevenda.toFixed(2))
 
-    document.getElementById("resultadoRomero").innerHTML = "Valor revenda: " + valorRevenda.toFixed(2)
+    resultado.innerHTML = "Com base na política de preços de romero, a obra deve ser vendida à R$ " + valorRevenda.toFixed(2)
 }   
 function verificarProvisoes(){
     //Variáveis
@@ -28,16 +27,34 @@ function verificarProvisoes(){
 
     //Output
     if (comidaMinima > qntComida || NumMarujos < 10) {
-        document.getElementById("resultadoGanso").innerHTML = "Algo está errado. Posseidom não quer ninguém no mar hoje."
+        resultado.innerHTML = "Algo está errado. Posseidom não quer ninguém no mar hoje."
             if (comidaMinima > qntComida) {
-                alert("Faltaram: " + (comidaMinima - qntComida) + " Kilos de comida")
+                console.log("Faltaram: " + (comidaMinima - qntComida) + " Kilos de comida")
+                resultado.innerHTML ="Faltaram: " + (comidaMinima - qntComida) + " Kilos de comida"
             }
             if (NumMarujos < 10) {
-                alert("Faltaram: " + (10 - NumMarujos) + " Marujos!")
+                console.log("Faltaram: " + (10 - NumMarujos) + " Marujos!")
+                resultado.innerHTML = "Faltaram: " + (10 - NumMarujos) + " Marujos!"
             }
     }else if (comidaMinima <= qntComida && NumMarujos >= 10) {
-
-        document.getElementById("resultadoGanso").innerHTML = "Provisões suficientes. Rumo ao horizonte!"
-
+        resultado.innerHTML = "Provisões suficientes. Rumo ao horizonte!"
+        console.log("Provisões suficientes. Rumo ao horizonte!")
     }
+}
+function verificarIdade(){
+    //Variáveis
+    let idade
+
+    //Input
+    idade = Number(prompt("Informe sua idade: "))
+
+    //Processar / Output
+    if (idade >= 18){
+        resultado.innerHTML = "Você já é considerado maior de idade ou adulto."
+        console.log("Você já é considerado maior de idade ou adulto.")
+    }else{
+        resultado.innerHTML = "Você ainda é considerado menor."
+        console.log("Você ainda é considerado menor.")
+    }
+
 }
