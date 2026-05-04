@@ -58,3 +58,24 @@ function verificarIdade(){
     }
 
 }
+function jogoDaAdivinhaçao(){
+//Variáveis
+let numeroAleatorio, numeroEscolhido
+
+//Input
+numeroEscolhido = Number(prompt("Escolha um número entre 1 - 10:"))
+
+//Processar / Output
+numeroAleatorio = Math.floor(Math.random(1, 10) * 10) + 1
+
+if (numeroAleatorio == numeroEscolhido){
+    console.log("Parabéns, você adivinhou o número! | número sorteado: " + numeroAleatorio)
+    resultado.innerHTML = "Parabéns, você adivinhou o número! | número sorteado: " + numeroAleatorio
+}else if(numeroEscolhido > 10 || numeroEscolhido < 1){
+    console.log("Atenção, você digitou um número invalido, ele precisa ser igual ou maior que 1 e igual ou menor que 10 | Número escolhido: " + numeroEscolhido)
+    resultado.innerHTML = "Atenção, você digitou um número invalido, ele precisa ser igual ou maior que 1 e igual ou menor que 10 | Número escolhido: " + numeroEscolhido
+}else if(numeroAleatorio != numeroEscolhido){
+    console.log("Desprezivel, você errou o número! | número sorteado: " + numeroAleatorio)
+    resultado.innerHTML = "Desprezivel, você errou o número! | número sorteado: " + numeroAleatorio
+}
+}
