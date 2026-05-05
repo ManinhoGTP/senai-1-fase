@@ -95,7 +95,7 @@ function verificarNumeroPar(){
         console.log("É impar!")
     }
 }
-function senhaSegura(){
+function verificarSegurançaDaSenha(){
     //Variáveis
     let senha
 
@@ -109,5 +109,32 @@ function senhaSegura(){
     }else{
         resultado.innerHTML = "Sua senha não é segura!"
         console.log("Sua senha não é segura!")
+    }
+}
+function calculadorNumero(){
+    //Variáveis
+    let numero1, numero2, operacao, numeroResultante
+
+    //Input
+    numero1 = Number(prompt("Primeiro número:"))
+    operacao = prompt("Insira a operação desejada: (+, -, *, /")
+    numero2 = Number(prompt("Segundo número:"))
+
+    //Processar / output
+    if(operacao == "+"){
+        numeroResultante = numero1 + numero2
+        resultado.innerHTML = "Resultado da soma: " + numeroResultante
+    }else if(operacao == "-"){
+        numeroResultante = numero1 - numero2
+        resultado.innerHTML = "Resultado da subtração: " + numeroResultante
+    }else if(operacao == "*"){
+        numeroResultante = numero1 * numero2
+        resultado.innerHTML = "Resultado da multiplicação: " + numeroResultante
+    }else if(operacao == "/"){
+        numeroResultante = numero1 / numero2
+        resultado.innerHTML = "Resultado da divisão: " + numeroResultante
+    }else{
+        resultado.innerHTML = "idiota detectado!"
+        alert("Foi inserida uma operação desconhecida! favor tentar denovo")
     }
 }
