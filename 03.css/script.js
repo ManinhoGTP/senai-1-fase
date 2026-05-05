@@ -66,7 +66,7 @@ let numeroAleatorio, numeroEscolhido
 numeroEscolhido = Number(prompt("Escolha um número entre 1 - 10:"))
 
 //Processar / Output
-numeroAleatorio = Math.floor(Math.random(1, 10) * 10) + 1
+numeroAleatorio = Math.ceil(Math.random(1, 10) * 10)
 
 if (numeroAleatorio == numeroEscolhido){
     console.log("Parabéns, você adivinhou o número! | número sorteado: " + numeroAleatorio)
@@ -78,4 +78,36 @@ if (numeroAleatorio == numeroEscolhido){
     console.log("Desprezivel, você errou o número! | número sorteado: " + numeroAleatorio)
     resultado.innerHTML = "Desprezivel, você errou o número! | número sorteado: " + numeroAleatorio
 }
+}
+function verificarNumeroPar(){
+    //Variáveis
+    let numero
+
+    //Input
+    numero = Number(prompt("Insira um numero e veja se ele é par:"))
+
+    //Processar / Output
+    if(numero %2 == 0){
+        resultado.innerHTML = "É par!"
+        console.log("É par!")
+    }else{
+        resultado.innerHTML = "É impar!"
+        console.log("É impar!")
+    }
+}
+function senhaSegura(){
+    //Variáveis
+    let senha
+
+    //Input
+    senha = prompt("Informe sua sua senha:")
+
+    //Processar / Output
+    if(senha.length >= 8){
+        resultado.innerHTML = "Sua senha é segura!"
+        console.log("Sua senha é segura!")
+    }else{
+        resultado.innerHTML = "Sua senha não é segura!"
+        console.log("Sua senha não é segura!")
+    }
 }
