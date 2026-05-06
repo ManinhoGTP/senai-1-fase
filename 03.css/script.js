@@ -118,7 +118,7 @@ function calculadorNumero(){
 
     //Input
     numero1 = Number(prompt("Primeiro número:"))
-    operacao = prompt("Insira a operação desejada: (+, -, *, /")
+    operacao = prompt("Insira a operação desejada: (+, -, *, /)")
     numero2 = Number(prompt("Segundo número:"))
 
     //Processar / output
