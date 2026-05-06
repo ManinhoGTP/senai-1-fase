@@ -1,3 +1,4 @@
+//Atividades
 let resultado = document.getElementById("resultado")
 function calcularPrecoBrique(){
     //Variáveis
@@ -136,5 +137,20 @@ function calculadorNumero(){
     }else{
         resultado.innerHTML = "idiota detectado!"
         alert("Foi inserida uma operação desconhecida! favor tentar denovo")
+    }
+}
+
+//Testes
+let resultadoTeste = document.getElementById("resultadoTeste")
+
+function testarSenha(){
+    //Variáveis
+   let senhaInserida = document.getElementById("senhaTeste"), senhaCorreta = "1234"
+
+   //Processar 
+    if (senhaInserida.value == senhaCorreta){
+        resultadoTeste.innerHTML = "Senha correta!"
+    }else{
+        resultadoTeste.innerHTML = "Senha errada tente denovo!"
     }
 }
