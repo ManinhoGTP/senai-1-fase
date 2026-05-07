@@ -171,6 +171,32 @@ function tempoDeViagemEspacial(){
     alert("Tempo necessário viajando na velocidade da luz: " + tempo.toFixed(1) + " " + sufixoTempo)
     resultado.innerHTML = "Tempo necessário viajando na velocidade da luz: " + tempo.toFixed(1) + " " + sufixoTempo
 }
+function calcularCredito(){
+    //Váriaveis
+    let salario, emprestimo, prestacoes, prestacoesPreco, prestacoesPrecoLimite
+    let juros = Number(0.10), jurosComposto
+
+    //Input
+    salario = Number(prompt("Informe seu salário:"))
+    emprestimo = Number(prompt("Qual valor do empréstimo?"))
+    prestacoes = Number(prompt("Em quantas prestações deseja pagar o empréstimo?"))
+
+    //Processar / Output
+    prestacoesPreco = emprestimo / prestacoes
+    prestacoesPrecoLimite = salario * (30 / 100)
+    jurosComposto = (emprestimo * ( prestacoes *(1 + juros))) - emprestimo
+    
+    if (prestacoesPreco > prestacoesPrecoLimite){
+        resultado.innerHTML = "Crédito bloqueado! preço das prestações maior que o limite de 30%"
+    }else if(salario <= 0 || emprestimo <= 0 || prestacoes <=0){
+        resultado.innerHTML = "Erro! Os valores requeridos não podem ser menor ou igual a 0"
+    }else{
+        resultado.innerHTML = "Crédito concedido!"
+    }
+
+    alert("Com juros compostos de 10%: " + jurosComposto)
+
+}
 
 //Testes
 let resultadoTeste = document.getElementById("resultadoTeste")
