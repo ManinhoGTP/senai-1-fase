@@ -139,18 +139,53 @@ function calculadorNumero(){
         alert("Foi inserida uma operação desconhecida! favor tentar denovo")
     }
 }
+function tempoDeViagemEspacial(){
+    //Variáveis
+    let distancia, tempo, sufixoTempo
+
+    //Input
+    distancia = Number(prompt("Insira a distância da viagem em kiloMetros:"))
+
+    //Processar
+    tempo = distancia / 300000
+    sufixoTempo = "Segundos"
+
+    if (tempo >= 60 && tempo < 3600) {
+        tempo = tempo / 60
+        sufixoTempo = "Minutos"
+    }else if (tempo >= 3600 && tempo < 86400) {
+        tempo = tempo / 3600
+        sufixoTempo = "Horas"
+    }else if (tempo >= 86400 && tempo < 2592000){
+        tempo = tempo / 86400
+        sufixoTempo = "Dias"
+    }else if (tempo >= 2592000 && tempo < 31104000){
+        tempo = tempo / 2592000
+        sufixoTempo = "Meses"
+    }else if (tempo > 31104000){
+        tempo = tempo / 31104000
+        sufixoTempo = "anos"
+    }
+
+    //Output
+    alert("Tempo necessário viajando na velocidade da luz: " + tempo.toFixed(1) + " " + sufixoTempo)
+    resultado.innerHTML = "Tempo necessário viajando na velocidade da luz: " + tempo.toFixed(1) + " " + sufixoTempo
+}
 
 //Testes
 let resultadoTeste = document.getElementById("resultadoTeste")
 
 function testarSenha(){
     //Variáveis
-   let senhaInserida = document.getElementById("senhaTeste"), senhaCorreta = "1234"
+   let senhaInserida = document.getElementById("senhaInserida"), senhaCorreta = "1234"
 
-   //Processar 
+   //Processar / Output
     if (senhaInserida.value == senhaCorreta){
         resultadoTeste.innerHTML = "Senha correta!"
+        senhaInserida.style.borderColor = "green"
     }else{
         resultadoTeste.innerHTML = "Senha errada tente denovo!"
+        senhaInserida.style.borderColor = "red"
     }
+    senhaInserida.value = ""
 }
