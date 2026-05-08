@@ -174,7 +174,7 @@ function tempoDeViagemEspacial(){
 function calcularCredito(){
     //Váriaveis
     let salario, emprestimo, prestacoes, prestacoesPreco, prestacoesPrecoLimite
-    let juros = Number(0.10), jurosComposto
+    let juros = Number(0.10), jurosComposto, jurosPorPrestacao
 
     //Input
     salario = Number(prompt("Informe seu salário:"))
@@ -184,7 +184,9 @@ function calcularCredito(){
     //Processar / Output
     prestacoesPreco = emprestimo / prestacoes
     prestacoesPrecoLimite = salario * (30 / 100)
-    jurosComposto = (emprestimo * ( prestacoes *(1 + juros))) - emprestimo
+    jurosComposto = emprestimo * ((1 + juros)** prestacoes)
+
+
     
     if (prestacoesPreco > prestacoesPrecoLimite){
         resultado.innerHTML = "Crédito bloqueado! preço das prestações maior que o limite de 30%"
@@ -194,7 +196,7 @@ function calcularCredito(){
         resultado.innerHTML = "Crédito concedido!"
     }
 
-    alert("Com juros compostos de 10%: " + jurosComposto)
+    alert("Com juros compostos de 10%: " + (jurosComposto - emprestimo).toFixed(2))
 
 }
 
