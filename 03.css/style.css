@@ -25,3 +25,7 @@
    border-color: black;
    border-style: solid;
  }
+ #numero1{
+   width: 50px;
+   flex: auto;
+ }

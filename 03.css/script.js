@@ -169,7 +169,8 @@ function tempoDeViagemEspacial(){
 
     //Output
     alert("Tempo necessário viajando na velocidade da luz: " + tempo.toFixed(1) + " " + sufixoTempo)
-    resultado.innerHTML = "Tempo necessário viajando na velocidade da luz: " + tempo.toFixed(1) + " " + sufixoTempo
+    // resultado.innerHTML = "Tempo necessário viajando na velocidade da luz: " + tempo.toFixed(1) + " " + sufixoTempo
+    resultado.innerHTML = `Tempo necessario viajando na velocidade da luz: ${tempo.toFixed(1)} ${sufixoTempo}`
 }
 function calcularCredito(){
     //Váriaveis
