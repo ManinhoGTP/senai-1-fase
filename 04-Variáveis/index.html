@@ -10,11 +10,43 @@
     <h1>Variáveis</h1>
     
     <hr>
-        <button onclick="incrementarContagem()">+</button>
+        <h2>Contador</h2>
         <p id="p-contagem">
             0
         </p>
+        <button onclick="incrementarContagem()">+</button>
+        <button onclick="decrementarContagem()">-</button>
+        <p>Quantia a ser alterada</p>
+        <input type="number", id="incrementar">
     <hr>
+
+    <h1>Atividades</h1>
+    
+    <hr>
+    <h3>MJ Harry Ploter</h3>
+    <input type="number", id="valorDaVenda">
+    <button onclick="adicionarVenda()">Adicionar valor de venda</button>
+    <p>Valor total em vendas: </p> <p id="valorTotalMJ"></p>
+    <hr>
+
+    <h3>Copo de dados</h3>
+    <button id="d4" onclick="d4()">d4</button>
+    <button id="d6" onclick="d6()">d6</button>
+    <button id="d8" onclick="d8()">d8</button>
+    <button id="d10" onclick="d10()">d10</button>
+    <button id="d12" onclick="d12()">d12</button>
+    <button id="d20" onclick="d20()">d20</button>
+    <br><p id="pontos">Pontos: </p>
+
+    <p id="d4Rolados">d4 rolados: </p>
+    <p id="d6Rolados">d6 rolados: </p>
+    <p id="d8Rolados">d8 rolados: </p>
+    <p id="d10Rolados">d10 rolados: </p>
+    <p id="d12Rolados">d12 rolados: </p>
+    <p id="d20Rolados">d20 rolados: </p>
+    <p id="rolagens">Rolagens: </p>
+    <hr>
+    
 
     <script src="script.js"></script>
 </body>

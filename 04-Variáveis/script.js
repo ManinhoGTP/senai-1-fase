@@ -1,35 +1,80 @@
+//Contador
 let cont = 0
+let ativo = "false"
+let quantia = document.getElementById("incrementar")
+
 function incrementarContagem(){
-        let auto = setInterval(() => {
-            cont ++
-            console.log(cont)
-            document.getElementById("p-contagem").innerHTML = cont
-        }, 250)
-    }
+    cont += Number(quantia.value)
+    document.getElementById("p-contagem").innerHTML = cont
+    console.log(cont)
+}
+function decrementarContagem(){
+    cont -= Number(quantia.value)
+    document.getElementById("p-contagem").innerHTML = cont
+    console.log(cont)
+}
 
+//Atividades
 
-
-
-
-
-
-
-
-
-
-let global = "Sou uma variavel global D:"
-function funcao1(){
-    let local = "Sou uma variaveis local :D"
-    console.log(local)
-    console.log(global)
+//MJ Harry Ploter
+let valorTotalMJ = 0
+function adicionarVenda(){
+    let valoAdicionado = Number(document.getElementById("valorDaVenda").value)
+    let output = document.getElementById("valorTotalMJ")
     
-}
-function funcao2(){
-    console.log(global)
-    // console.log(local)
-
+    valorTotalMJ += valoAdicionado
+    output.innerHTML = valorTotalMJ.toFixed(2) + " R$"
 }
 
-
-// funcao1()
-// funcao2()
+//Copo de dados //Código merda não repare
+let numero = 0
+let contD4 = 0, contD6 = 0, contD8 = 0, contD10 = 0, contD12 = 0, contD20 = 0
+let rolagens = document.getElementById("rolagens")
+function d4(){
+    numeroSorteado = Math.ceil((Math.random()*4))
+    numero = Number(numero + numeroSorteado)
+    document.getElementById("pontos").innerHTML = "Pontos: " + numero
+    contD4 ++
+    document.getElementById("d4Rolados").innerHTML = "d4 rolados: " + contD4
+    rolagens.innerHTML += numeroSorteado + ", "
+}
+function d6(){
+    numeroSorteado = Math.ceil((Math.random()*6))
+    numero = Number(numero + numeroSorteado)
+    document.getElementById("pontos").innerHTML = "Pontos: " + numero
+    contD6 ++
+    document.getElementById("d6Rolados").innerHTML = "d6 rolados" + contD6
+    rolagens.innerHTML += numeroSorteado + ", "
+}
+function d8(){
+    numeroSorteado = Math.ceil((Math.random()*8))
+    numero = Number(numero + numeroSorteado)
+    document.getElementById("pontos").innerHTML = "Pontos: " + numero
+    contD8 ++
+    document.getElementById("d8Rolados").innerHTML = "d8 rolados: " + contD8
+    rolagens.innerHTML += numeroSorteado + ", "
+}
+function d10(){
+    numeroSorteado = Math.ceil((Math.random()*10))
+    numero = Number(numero + numeroSorteado)
+    document.getElementById("pontos").innerHTML = "Pontos: " + numero
+    contD10 ++
+    document.getElementById("d10Rolados").innerHTML = "d10 rolados: " + contD10
+    rolagens.innerHTML += numeroSorteado + ", "
+}
+function d12(){
+    numeroSorteado = Math.ceil((Math.random()*12))
+    numero = Number(numero + numeroSorteado)
+    document.getElementById("pontos").innerHTML = "Pontos: " + numero
+    contD12 ++
+    document.getElementById("d12Rolados").innerHTML = "d12 rolados: " + contD12
+    rolagens.innerHTML += numeroSorteado + ", "
+}
+function d20(){
+    numeroSorteado = Math.ceil((Math.random()*20))
+    numero = Number(numero + numeroSorteado)
+    document.getElementById("pontos").innerHTML = "Pontos: " + numero
+    contD20 ++
+    document.getElementById("d20Rolados").innerHTML = "d20 rolados: " + contD20
+    rolagens.innerHTML += numeroSorteado + ", "
+}
