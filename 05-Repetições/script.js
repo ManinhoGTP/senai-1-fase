@@ -1,5 +1,10 @@
 //While
-function contadorWhile(contador, incremento){
+function contadorWhile(){
+    //Escolha do usuário
+    contador = Number(prompt("Número inicial do contador"))
+    incremento = Number(prompt("Número do incremento"))
+
+    //Loop & Output
     while(contador < 10){
         alert(`contador menor que 10 (${contador})`)
         contador += incremento
@@ -8,8 +13,12 @@ function contadorWhile(contador, incremento){
 
 //For
 function contadorFor(){
-let numero = prompt("Escolha um número para mostrar sua tabuada")
-    for(let i = 1; i <= 10; i++){
+    //Escolha do usuário
+    let numero = Number(prompt("Escolha um número para mostrar sua tabuada"))
+    let numDeRepetiçao = Number(prompt("Até que número você quer a tabuáda?"))
+
+    //Loop & Output
+    for(let i = 1; i <= numDeRepetiçao; i++){
         alert(`${i} X ${numero} = ${numero * i}`)
     }
 }
