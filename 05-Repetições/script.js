@@ -2,10 +2,11 @@
 function contadorWhile(){
     //Escolha do usuário
     contador = Number(prompt("Número inicial do contador"))
+    contadorLimite = Number(prompt("Número maximo do contador"))
     incremento = Number(prompt("Número do incremento"))
 
     //Loop & Output
-    while(contador < 10){
+    while(contador < contadorLimite){
         alert(`contador menor que 10 (${contador})`)
         contador += incremento
     }
