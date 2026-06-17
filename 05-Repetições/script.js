@@ -30,6 +30,7 @@ function atividade1(){
     let saida = document.getElementById("saida")
     saida.innerHTML += "<br>"
 
+    //Contador crescente
     while(i <= 10){
         saida.innerHTML += ` ${i}`
         i++
@@ -37,6 +38,7 @@ function atividade1(){
 
     saida.innerHTML += "<br>"
 
+    //Contador decrescente
     i = 10
     while(i >= 1){
         saida.innerHTML += ` ${i}`
@@ -45,6 +47,7 @@ function atividade1(){
 
     saida.innerHTML += "<br>"
 
+    //Mostrar tabuáda
     let x = Number(prompt("escolha um número para mostrar sua tabuáda"))
     for(i = 1; i<=10; i++){
         saida.innerHTML += `${i} x ${x} = ${i * x} | `
@@ -52,11 +55,48 @@ function atividade1(){
 
     saida.innerHTML += "<br>"
 
+    //Mostrar numeros impares até 20
     for(i = 1; i<=20; i++){
         if(i%2 == "1"){
             saida.innerHTML += i + " | "
         }
     }
+
+    saida.innerHTML += "<br>"
+
+    //Alterar multiplos de 3 e 5 por Fizz e Buzz de 1 a 100
+    for(i=1;i<=100;i++){
+        if(i%3 == 0 && i%5 == 0){
+            saida.innerHTML += "FizzBuzz | "
+        }else if(i%3 == 0){
+            saida.innerHTML += "Fizz | "
+        }else if(i%5 == 0){
+            saida.innerHTML += "Buzz | "
+        }else{
+            saida.innerHTML += `${i} | `
+        }
+    }
+
+    saida.innerHTML += "<br>"
+
+    //Contar pares e impares de 1 a numero escolhido
+    let numero = Number(prompt("Escolha um número para contar quantos pares e impares existem de 1 até ele"))
+    let pares = 0, impares = 1
+
+    for(i=1;i<=numero;i++){
+
+        if(i%2 == 0){
+            pares ++
+        }else if(i%2 == 1){
+            impares ++
+        }
+
+        if(i == numero){
+            saida.innerHTML += `Números pares: ${pares} <br> Números impares: ${impares}`
+        }
+
+    }
+
 }
 
 //calcular fatorial
