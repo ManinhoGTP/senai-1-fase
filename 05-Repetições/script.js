@@ -24,10 +24,11 @@ function contadorFor(){
     }
 }
 
+
 //Atividades parte 1
 function atividade1(){
-    let i = 1
     let saida = document.getElementById("saida")
+    let i = 1
     saida.innerHTML += "<br>"
 
     //Contador crescente
@@ -98,6 +99,35 @@ function atividade1(){
     }
 
 }
+//Atividades parte 2
+function atividade2(){
+    let saida = document.getElementById("saida")
+
+
+    //Repetir palavra 10 vezes
+    let palavra = prompt("Informe uma palavra para repetir 10 vezes")
+    for(i=1;i<=10;i++){
+        saida.innerHTML += ` ${palavra}, `
+    }
+
+    saida.innerHTML += "<br>"
+
+    //Somar números pares
+    let numero = Number(prompt("Insira um número para somar todos os pares de 2 até ele"))
+    let resultado = 2
+    for(i=2;i<=numero;i++){
+
+        if(i%2 == 0){
+            resultado += i
+        }
+        if(i == numero){
+            saida.innerHTML += `A soma dos números pares de 2 até ${numero} = ${resultado}`
+        }
+    }
+
+    
+}
+
 
 //calcular fatorial
 function calcularFatorial(){
