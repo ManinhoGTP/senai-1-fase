@@ -7,7 +7,7 @@ function contadorWhile(){
 
     //Loop & Output
     while(contador < contadorLimite){
-        alert(`contador menor que 10 (${contador})`)
+        alert(`contador menor que ${contadorLimite} (${contador})`)
         contador += incremento
     }
 }
@@ -85,19 +85,15 @@ function atividade1(){
     let pares = 0, impares = 1
 
     for(i=1;i<=numero;i++){
-
         if(i%2 == 0){
             pares ++
-        }else if(i%2 == 1){
+        }else{
             impares ++
         }
-
         if(i == numero){
             saida.innerHTML += `Números pares: ${pares} <br> Números impares: ${impares}`
         }
-
     }
-
 }
 //Atividades parte 2
 function atividade2(){
@@ -116,7 +112,6 @@ function atividade2(){
     let numero = Number(prompt("Insira um número para somar todos os pares de 2 até ele"))
     let resultado = 2
     for(i=2;i<=numero;i++){
-
         if(i%2 == 0){
             resultado += i
         }
@@ -125,7 +120,21 @@ function atividade2(){
         }
     }
 
+    saida.innerHTML += "<br>"
 
+    //Lista de compra
+
+    const listaDeCompra = [] 
+    let posicaoDoItem = 0
+    while(true){
+        let item = prompt("Adicionar item a lista de compra: (0 para parar)")
+        if(item == "0"){
+            break
+        }
+        listaDeCompra.push(item)
+        saida.innerHTML += `${posicaoDoItem + 1}- ${listaDeCompra[posicaoDoItem]}, `
+        posicaoDoItem++   
+    }
 }
 
 
@@ -145,6 +154,43 @@ function calcularFatorial(){
             saida.innerHTML += `${i} = ${numeroResultante}`
         }else{
             saida.innerHTML += `${i} x `
+        }
+    }
+}
+
+//Lista de números encontrar o maior e menor valor
+function calcularMenorEMaiorValor(){
+    //Lista dos números, variáveis para o menor e maior valor, e valor a ser adicionado a lista
+    const listaDeNumeros = []
+    let menorValor = 0, maiorValor = 0
+    let numero
+
+    //Lista dos numeros
+    while(true){
+       numero = Number(prompt("Insira números na lista para calcular o maior e o menor (0 para parar)"))
+       //Se 0 parar, senão adicionar a lista
+       if(numero == 0){
+            break
+       }else{
+           listaDeNumeros.push(numero)
+       }
+    }
+
+    //passar por todas as posições da lista
+    for(let posicao = 0;posicao <= listaDeNumeros.length;posicao++){
+
+        //se o numero da posição atual for menor que o menor valor atual ou o valor atual for 0, definir numero da posição atual
+        if(listaDeNumeros[posicao] < menorValor || menorValor == 0){
+            menorValor = listaDeNumeros[posicao]
+        }
+        //Se o numero da posição atual for maior que o maior valor atual, definir numero da posição atual
+        if(listaDeNumeros[posicao] > maiorValor){
+            maiorValor = listaDeNumeros[posicao]
+        }
+        //Se a posição atual for a ultima printar numeros
+        if(posicao == listaDeNumeros.length){
+            document.getElementById("saida").innerHTML += ` Maior valor: ${maiorValor}, Menor valor: ${menorValor}`
+            document.getElementById("saida").innerHTML += ` | Lista de números: ${listaDeNumeros}`
         }
     }
 }
