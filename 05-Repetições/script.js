@@ -194,3 +194,184 @@ function calcularMenorEMaiorValor(){
         }
     }
 }
+
+//Marcia lista for:
+
+function somarNumeros(){
+    let resultado = 0
+    let saida = document.getElementById("saida")
+
+    for(let i = 1; i <=10;i++){
+        if(i < 10){
+            saida.innerHTML += `${i} + `
+            resultado += i
+        }else if(i == 10){
+            resultado += i
+            saida.innerHTML += `${i} = ${resultado} `
+        }
+    }
+
+}
+
+function mostrarTabuada(){
+    let saida = document.getElementById("saida")
+    let multiplicador = 5
+    let resultado = 0
+    for(i = 1; i <=10;i++){
+        resultado = multiplicador * i
+        saida.innerHTML += `${multiplicador} x ${i} = ${resultado} <br>`
+    }
+}
+
+function mostrarQuadrado(){
+    let saida = document.getElementById("saida")
+    let resultado = 0
+    for(let i = 1;i <=10;i++){
+        resultado = i**2
+        saida.innerHTML += `${i}² = ${resultado}<br>`
+    }
+}
+
+function soletrarJava(){
+    let saida = document.getElementById("saida")
+    let palavra = "JavaScript"
+
+    for(let i=0;i < palavra.length;i++){
+        if(i == 0){
+            saida.innerHTML += "<br>"
+        }
+        saida.innerHTML += `${palavra[i]} <br>`
+    }
+
+
+}
+
+function mostrarMiltiploDe3(){
+    let saida = document.getElementById("saida")
+
+    for(let i = 1; i <= 30; i++){
+        if(i == 30){
+            saida.innerHTML += `${i}`
+        }else if(i%3 == 0){
+            saida.innerHTML += `${i}, `
+        }
+    }
+}
+
+function mostrarAsteriscos(){
+    let saida = document.getElementById("saida")
+    for(let i = 0; i<= 10; i++){
+        saida.innerHTML += `*`
+    }
+}
+
+function somarParesDe1a20(){
+    let saida = document.getElementById("saida")
+    let resultado = 0
+    
+    for(i=1;i<=20;i++){
+        if(i == 20){
+            saida.innerHTML += `${i} = ${resultado} `
+        }else if(i%2 == 0){
+            resultado += i
+            saida.innerHTML += `${i} + `
+        }
+    }
+
+}
+
+function contardorDe0a50(){
+    let saida = document.getElementById("saida")
+
+    for(i=0;i<=50;i += 5){
+        if(i == 50){
+            saida.innerHTML += `${i}`
+        }else{
+            saida.innerHTML += `${i}, ` 
+        }
+    }
+
+
+}
+
+function MostrarOla8Vezes(){
+    let saida = document.getElementById("saida")
+    let palavra = "Olá"
+    for(i=0;i<=8;i++){
+        if(i == 8){
+            saida.innerHTML += `${palavra}`
+        }else{
+            saida.innerHTML += `${palavra}, `
+        }
+    }
+}
+
+function somarImparesDe1A15(){
+    let saida = document.getElementById("saida")
+    let resultado = 0
+    for(i=1;i<=15;i++){
+        if(i == 15 && i%3 == 0){
+            resultado += i
+            saida.innerHTML += `${i} = ${resultado}`
+        }else if(i%3 == 0){
+            resultado += i
+            saida.innerHTML += `${i} + `
+        }
+    }
+}
+
+function somarParesDe1A15(){
+    let saida = document.getElementById("saida")
+    let resultado = 0
+    for(i=1;i<=15;i++){
+        if(i == 14){
+            resultado += i
+            saida.innerHTML += `${i} = ${resultado}`
+        }else if(i%2 == 0){
+            resultado += i
+            saida.innerHTML += `${i} + `
+        }
+    }
+}
+
+function mostrarSequencia123(){
+    let saida = document.getElementById("saida")
+    let texto = ""
+    for(i=1;i<=6;i++){
+        saida.innerHTML += `${texto}, `
+        texto += i
+    }
+
+
+}
+
+function calcularFatorialDe5(){
+    let saida = document.getElementById("saida")
+    let numerador = 5
+    let resultado = 1
+
+    saida.innerHTML += `${numerador}! = `
+
+    for(i = numerador;i>0;i--){
+
+        resultado *= i
+        if(i == 1){
+            saida.innerHTML += `${i} = ${resultado}`
+        }else{
+            saida.innerHTML += `${i} x `
+        }
+    }
+}
+
+function contarLetrasO(){
+    let saida = document.getElementById("saida")
+    let frase = prompt("Informe uma frase para contar quantas letras 'o' ela possui:")
+    let contador = 0
+
+    for(i=0;i<frase.length;i++){
+        if(frase[i] == "o"){
+            contador ++
+        }
+    }
+    saida.innerHTML += `Número de "o" na frase: ${contador}`
+}
