@@ -375,3 +375,61 @@ function contarLetrasO(){
     }
     saida.innerHTML += `Número de "o" na frase: ${contador}`
 }
+
+//desafio 1 e 2
+
+function fazerRelatorioSprint(){
+    saida = document.getElementById("saida")
+    let qntDias, tarefasCompletas, tarefasInconpletas, totalTarefasConcluidas = 0, totalTarefasInconpletas = 0
+    qntDias = prompt("Quantos dias teve a sprint?")
+
+    for(let i = 1;i <= qntDias; i++){
+        tarefasCompletas = Number(prompt(`quantas tarefas foram completas no dia ${i}?`))
+        tarefasInconpletas = Number(prompt(`quantas tarefas ficaram inconpletas no dia ${i}?`))
+
+        totalTarefasConcluidas += tarefasCompletas
+        totalTarefasInconpletas += tarefasInconpletas
+
+        saida.innerHTML += `Dia ${i}: ${tarefasCompletas} Comcluida(s) | ${tarefasInconpletas} Incompleta(s)<br>`
+    }
+
+    saida.innerHTML += `<br> Relatório Final da Sprint<br> 
+    <br>Total de tarefas concluidas: ${totalTarefasConcluidas} 
+    <br>Total de tarefas inconpletas: ${totalTarefasInconpletas} `
+}
+
+function fazerRelatorioBugs(){
+    //Variáveis
+    let saida = document.getElementById("saida")
+    let qtnDias, bugs, totalDeBugs = 0, mediaBugs, maiorQuantiaDeBugs = 0, maiorQuantiaDeBugsDia, menorQuantiaDeBugs = -1, menorQuantiaDeBugsDia
+    let diasCom0Bugs = 0, diasComMaisDe10Bugs = 0
+
+    qtnDias = prompt("Quantos dias teve a sprint?")
+
+    for(let i = 1;i<=qtnDias;i++){
+        //Ciclo principal
+        bugs = Number(prompt(`Quantos bugs teve no dia ${i}?`))
+        saida.innerHTML += `Dia ${i}: ${bugs} Bugs<br>`
+        
+        //Soma das variáveis
+        totalDeBugs += bugs
+        if(bugs > maiorQuantiaDeBugs){
+            maiorQuantiaDeBugs = bugs
+            maiorQuantiaDeBugsDia = i
+        }
+        if(bugs < menorQuantiaDeBugs || menorQuantiaDeBugs == -1){
+            menorQuantiaDeBugs = bugs
+            menorQuantiaDeBugsDia = i
+        }
+        if(bugs == 0){
+            diasCom0Bugs += 1
+        }
+        if(bugs > 10){
+            diasComMaisDe10Bugs += 1
+        }
+    }
+    mediaBugs = qtnDias / bugs
+
+    //Output / relatório
+    saida.innerHTML += `<br> ----------<br><br>Total de bugs: ${totalDeBugs} <br> Média de bugs: ${mediaBugs}<br><br>Maior quantia de bugs: ${maiorQuantiaDeBugs} <br> Dia com mais bugs: ${maiorQuantiaDeBugsDia}<br><br>Menor quantia de bugs: ${menorQuantiaDeBugs} <br> Dia com menos bugs: ${menorQuantiaDeBugsDia}<br><br>Dias com mais de 10 bugs: ${diasComMaisDe10Bugs} <br> Dia com 0 bugs: ${diasCom0Bugs} `
+}
