@@ -9,6 +9,7 @@ D >> Delete >> Deletar/Apagar/Excluir
 */
 
 
+
 //Inputs nome, cor, altura, custo
 const inputNome = document.getElementById("input-nome"), inputCor = document.getElementById("input-cor") 
 const inputAltura = document.getElementById("input-altura"), inputCusto = document.getElementById("input-custo") 
@@ -29,42 +30,42 @@ function resetarInputs(){
 function testar(){
     dinos = [{
         id: 162162161,
-        nome: "teste1",
-        cor: "cor1",
-        altura: 1,
-        custo: 1
+        nome: "Dino1",
+        cor: "Vermelho",
+        altura: 7,
+        custo: 14
     },
     {
         id: 6436346363,
-        nome: "teste2",
-        cor: "cor2",
-        altura: 2,
-        custo: 2
+        nome: "Dino2",
+        cor: "Amarelo",
+        altura: 8,
+        custo: 16
     },
     {
         id: 83548537835,
-        nome: "teste3",
-        cor: "cor3",
-        altura: 3,
-        custo: 3
+        nome: "Dino3",
+        cor: "Verde",
+        altura: 9,
+        custo: 18
     },
     {
         id: 5484537347347437,
-        nome: "teste4",
-        cor: "cor4",
-        altura: 4,
-        custo: 4
+        nome: "Dino4",
+        cor: "Azul",
+        altura: 10,
+        custo:20
     },
     {
         id: 7433838383,
-        nome: "teste5",
-        cor: "cor5",
-        altura: 5,
-        custo: 5
+        nome: "Dino5",
+        cor: "Roxo",
+        altura: 11,
+        custo: 21.99
     }
     ]
     console.log(dinos)
- }
+}
 
 
 function cadastrarDino(){
@@ -76,7 +77,6 @@ function cadastrarDino(){
         altura: Number(inputAltura.value),
         custo: Number(inputCusto.value)
     }
-
     
     //Adicionar ao array
     dinos.push(novoDino)
@@ -84,11 +84,21 @@ function cadastrarDino(){
     resetarInputs()
     //Console log
     console.log(dinos)
+
 }
 function mostrarTodosOsDinos(){
-    let lista = document.getElementById("listaDeDinos")
+    let lista = document.getElementById("painel-dinos")
+    lista.innerHTML = ""
 
     for(let i = 0; i<dinos.length; i++){
-        lista.innerHTML += `${i} - ${dinos[i].nome} <br>'`
+        lista.innerHTML += `
+        <div class = "card-dino">
+            <h3>${i} - ${dinos[i].nome}</h3>
+            <p>Cor: ${dinos[i].cor}</p>
+            <p>Altura: ${dinos[i].altura}</p>
+            <p>Custo: ${dinos[i].custo}</p>
+            <p>ID: ${dinos[i].id}</p>
+        </div>
+        `
     }
 }
