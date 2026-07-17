@@ -22,7 +22,7 @@ h1{
 
 .card-dino{
     /* margin: 10px; */
-    width: 275px;
+    width: 250px;
     background-color: antiquewhite;
     padding-left: 7px;
     border-radius: 20px;
@@ -33,6 +33,7 @@ h1{
     justify-content: center;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 #form{
@@ -42,6 +43,7 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 5px;
 }
 .container-inputs{
     display: flex;

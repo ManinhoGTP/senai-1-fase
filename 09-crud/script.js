@@ -84,6 +84,7 @@ function cadastrarDino(){
     resetarInputs()
     //Console log
     console.log(dinos)
+    mostrarTodosOsDinos()
 
 }
 function mostrarTodosOsDinos(){
