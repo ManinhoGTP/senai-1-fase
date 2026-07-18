@@ -12,7 +12,8 @@ D >> Delete >> Deletar/Apagar/Excluir
 
 //Inputs nome, cor, altura, custo
 const inputNome = document.getElementById("input-nome"), inputCor = document.getElementById("input-cor") 
-const inputAltura = document.getElementById("input-altura"), inputCusto = document.getElementById("input-custo") 
+const inputAltura = document.getElementById("input-altura"), inputCusto = document.getElementById("input-custo")
+const inputId = document.getElementById("input-Id")
 
 //Array de dinos
 let dinos = []
@@ -24,6 +25,7 @@ function resetarInputs(){
     inputCor.value = ""
     inputAltura.value = ""
     inputCusto.value = ""
+    inputId.value = ""
 
     inputNome.focus()
 }
@@ -102,4 +104,46 @@ function mostrarTodosOsDinos(){
         </div>
         `
     }
+}
+
+function pesquisar(){
+    let nomeProcurado = inputNome.value
+
+    for(let i = 0; i<dinos.length;i++){
+        if(nomeProcurado == dinos[i].nome){
+            console.log(dinos[i])
+            console.log(i)
+
+            inputAltura.value = dinos[i].altura
+            inputCor.value = dinos[i].cor
+            inputCusto.value = dinos[i].custo
+            inputId.value = dinos[i].id
+        }
+    }
+
+}
+function updateDino(){
+    let idEscolhido = Number(inputId.value)
+
+    for(let i = 0; i<dinos.length;i++){
+        if(idEscolhido == dinos[i].id){
+            dinos[i].nome = inputNome.value
+            dinos[i].cor = inputCor.value
+            dinos[i].altura = inputAltura.value
+            dinos[i].custo = inputCusto.value
+        }
+    }
+    mostrarTodosOsDinos()
+    resetarInputs()
+}
+function deletarDino(){
+    let dinoEscolhido = Number(inputId.value)
+
+    for(let i = 0; i<dinos.length;i++){
+        if(dinoEscolhido == dinos[i].id){
+            dinos.splice(i, 1)
+        }
+    }
+    mostrarTodosOsDinos()
+    resetarInputs()
 }

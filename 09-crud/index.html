@@ -12,7 +12,6 @@
     
 
     <div id="form">
-
         <div class="container-inputs">
             <label for="">Nome</label>
             <input id="input-nome" type="text">
@@ -29,13 +28,24 @@
             <label for="">Custo</label>
             <input id="input-custo" type="number">
         </div>
+        <div class="container-inputs">
+            <label for="">ID</label>
+            <input id="input-Id" type="number">
+        </div>
 
-        <button onclick="cadastrarDino()" id="botao">+</button>
+        <button onclick="cadastrarDino()" id="botaoAdd">+</button>
+        <button onclick="updateDino()">💾</button>
+        <button onclick="deletarDino()">Deletar</button>
     </div>
 
     <hr>
-    <button onclick="mostrarTodosOsDinos()">Mostrar dinos</button>
-    <br><button onclick="testar()">Testar</button>
+
+    <div id="painel-botoes">
+        <button onclick="mostrarTodosOsDinos()">Mostrar dinos</button>
+        <br><button onclick="testar()">Testar</button>
+        <br><button onclick="pesquisar()">🔍</button>
+    </div>
+    
 
     <div id="painel-dinos">
     </div>
