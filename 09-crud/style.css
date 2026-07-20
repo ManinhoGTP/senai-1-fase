@@ -1,0 +1,73 @@
+:root {
+  /* --- CORES PRINCIPAIS (BRANDING) --- */
+  --color-primary: #2d5a27;       /* Verde Selva Profundo (Botões principais, headers) */
+  --color-secondary: #d4a373;     /* Bege Fóssil / Osso (Destaques secundários, cards) */
+  --color-accent: #e65f2b;        /* Laranja Magma (Call to Action, links, alertas) */
+
+  /* --- CORES DE FUNDO (BACKGROUNDS) --- */
+  --bg-main: #4f6349;             /* Areia Claro (Fundo principal do site - excelente leitura) */
+  --bg-surface: #ffffff;          /* Branco Puro (Cards, containers internos) */
+  --bg-dark: #1e251c;             /* Verde Pântano Escuro (Footer, herosection ou modo escuro) */
+
+  /* --- TEXTOS (TYPOGRAPHY) --- */
+  --text-main: #2b2d42;           /* Grafite Escuro (Texto principal, alta legibilidade) */
+  --text-muted: #6c757d;          /* Cinza Neutro (Subtítulos, datas, textos secundários) */
+  --text-light: #fcf8f2;          /* Areia Claro (Para textos sobre fundos escuros) */
+
+  /* --- SUCESSO & BORDA --- */
+  --color-border: #e0d7cd;        /* Borda Suave (Divisores, contornos de cards) */
+  --color-success: #4caf50;       /* Verde Herbívoro (Mensagens de sucesso) */
+}
+
+body{
+    background-color: var(--bg-main);
+}
+.container-inputs{
+    padding: 5px;
+}
+button:hover{
+    scale: 1.1;
+}
+#painel-botoes{
+    text-align: center;
+}
+#painel-botoes button{
+    border-radius: 5px;
+}
+
+h1{
+    text-align: center;
+    font-weight: 900;
+}
+
+.card-dino{
+    /* margin: 10px; */
+    width: 250px;
+    background-color: var(--color-accent);
+    padding-left: 7px;
+    border-radius: 20px;
+    box-shadow: 0 0 3px #000;
+}
+#painel-dinos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#form{
+    background-color: var(--color-secondary);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+.container-inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
+}
