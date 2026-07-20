@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operações com Array de Personagens</title>
+<style>
+  body {
+    font-family: monospace;
+    background: #fff;
+    color: #000;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 18px;
+  }
+  div.array-item {
+    border: 1px solid #000;
+    padding: 4px 8px;
+    margin: 4px 0;
+  }
+  div.step {
+    border: 1px solid #000;
+    padding: 8px;
+    margin: 8px 0;
+  }
+  div.resultado {
+    border: 1px solid #000;
+    padding: 8px;
+    margin: 8px 0;
+  }
+  button {
+    font-family: monospace;
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<h1>Operações com o array de personagens</h1>
+
+<div id="lista"></div>
+
+<div class="step">
+  1. Verificar se "Kowalski" está presente
+  <button onclick="passo1()">Executar</button>
+</div>
+
+<div class="step">
+  2. Descobrir índice de "Padre Ernan Buco"
+  <button onclick="passo2()">Executar</button>
+</div>
+
+<div class="step">
+  3. Remover "GENéZio" com splice()
+  <button onclick="passo3()">Executar</button>
+</div>
+
+<div class="step">
+  4. Inverter o array
+  <button onclick="passo4()">Executar</button>
+</div>
+
+<div id="resultado" class="resultado">Resultado da execução: <span id="resultado-texto">nenhuma execução ainda</span></div>
+
+<button onclick="reiniciar()">Reiniciar</button>
+
+<script>
+  let personagens = [];
+
+  function estadoInicial() {
+    return [
+      "Gill Bates",
+      "Kowalski",
+      "GENéZio",
+      "Padre Ernan Buco",
+      "Heitor Tuga"
+    ];
+  }
+
+  function renderLista() {
+    const lista = document.getElementById('lista');
+    lista.innerHTML = '';
+    personagens.forEach(nome => {
+      const div = document.createElement('div');
+      div.className = 'array-item';
+      div.textContent = nome;
+      lista.appendChild(div);
+    });
+  }
+
+  function mostrarResultado(texto) {
+    document.getElementById('resultado-texto').textContent = texto;
+  }
+
+  function passo1() {
+    const encontrado = personagens.includes("Kowalski");
+    mostrarResultado('includes("Kowalski") -> ' + encontrado);
+  }
+
+  function passo2() {
+    const indice = personagens.indexOf("Padre Ernan Buco");
+    mostrarResultado('indexOf("Padre Ernan Buco") -> ' + indice);
+  }
+
+  function passo3() {
+    const indice = personagens.indexOf("GENéZio");
+    personagens.splice(indice, 1);
+    mostrarResultado('splice(' + indice + ', 1) -> removido "GENéZio"');
+    renderLista();
+  }
+
+  function passo4() {
+    personagens.reverse();
+    mostrarResultado('reverse() -> [' + personagens.join(', ') + ']');
+    renderLista();
+  }
+
+  function reiniciar() {
+    personagens = estadoInicial();
+    renderLista();
+    mostrarResultado('demonstração reiniciada');
+  }
+
+  reiniciar();
+</script>
+</body>
+</html>
