@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estruturas de Controle e Fluxo - JavaScript</title>
+    <link rel="stylesheet" href="css/style.css">
+<style>
+    /* Variáveis de cor para fácil ajuste */
+        :root {
+            --bg-dark: #000000;
+            --bg-medium: #111111;
+            --neon-green-primary: #39ff14; /* Verde Elétrico Brilhante */
+            --neon-green-secondary: #228b22; /* Verde mais escuro/Borda */
+            --text-light: #ffffff;
+            --text-dim: #999999;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* Adiciona uma sutil sombra de texto neon para o efeito "brilho" */
+            /*text-shadow: 0 0 5px var(--neon-green-secondary);*/ 
+        }
+
+        body {
+            font-family: 'Consolas', 'Courier New', monospace; /* Fonte tecnológica/monospaçada */
+            background: var(--bg-dark);
+            min-height: 100vh;
+            padding: 20px;
+            color: var(--text-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg-medium);
+            border-radius: 12px;
+            /* Efeito de brilho neon na borda */
+            box-shadow: 0 0 15px var(--neon-green-primary), 0 0 30px rgba(57, 255, 20, 0.5);
+            overflow: hidden;
+            border: 2px solid var(--neon-green-secondary);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: var(--neon-green-primary);
+            padding: 30px;
+            border-bottom: 3px solid var(--neon-green-primary);
+            text-shadow: 0 0 8px var(--neon-green-primary);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.8;
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .tabs {
+            display: flex;
+            background: var(--bg-medium);
+            border-bottom: 2px solid var(--neon-green-secondary);
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 15px 25px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--neon-green-secondary);
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .tab:hover {
+            background: rgba(57, 255, 20, 0.1);
+            color: var(--neon-green-primary);
+        }
+
+        .tab.active {
+            background: var(--bg-dark);
+            color: var(--neon-green-primary);
+            border-bottom: 3px solid var(--neon-green-primary);
+            text-shadow: 0 0 4px var(--neon-green-primary);
+        }
+
+        .content {
+            padding: 30px;
+            background: var(--bg-medium);
+        }
+
+        .exercise-header {
+            margin-bottom: 25px;
+        }
+
+        .exercise-header h2 {
+            font-size: 1.8rem;
+            color: var(--neon-green-primary);
+            margin-bottom: 8px;
+            text-shadow: 0 0 5px rgba(57, 255, 20, 0.7);
+        }
+
+        .exercise-header p {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 968px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .editor-section, .results-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .section-label {
+            font-weight: 600;
+            color: var(--neon-green-secondary);
+            font-size: 0.95rem;
+        }
+
+        .reset-btn {
+            background: none;
+            border: 1px solid var(--neon-green-secondary);
+            color: var(--neon-green-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .reset-btn:hover {
+            background: var(--neon-green-secondary);
+            color: var(--bg-dark);
+            box-shadow: 0 0 5px var(--neon-green-primary);
+        }
+
+        textarea {
+            width: 100%;
+            height: 350px;
+            padding: 15px;
+            background: var(--bg-dark);
+            color: var(--neon-green-primary);
+            border: 2px solid var(--neon-green-secondary);
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            resize: vertical;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--neon-green-primary);
+            box-shadow: 0 0 10px var(--neon-green-primary);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+        }
+
+        .btn-run {
+            background: var(--neon-green-secondary); /* Verde mais escuro para o botão */
+            color: var(--bg-dark);
+            border: 2px solid var(--neon-green-primary);
+        }
+
+        .btn-run:hover {
+            background: var(--neon-green-primary); /* Brilho ao passar o mouse */
+            color: var(--bg-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px var(--neon-green-primary);
+        }
+
+        .btn-solution {
+            background: #4b0082; /* Roxo escuro para contraste (código Alienígena) */
+            color: var(--text-light);
+            border: 2px solid #8a2be2;
+        }
+
+        .btn-solution:hover {
+            background: #8a2be2;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px #8a2be2;
+        }
+
+        .results-box {
+            height: 350px;
+            padding: 20px;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            border: 2px solid var(--neon-green-secondary);
+            border-radius: 8px;
+            overflow-y: auto;
+        }
+
+        .empty-results {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .test-result {
+            margin-bottom: 12px;
+            padding: 15px;
+            border-radius: 6px;
+            border: 2px solid;
+            color: var(--bg-dark); /* Texto escuro dentro do resultado para contraste */
+        }
+
+        .test-result.pass {
+            background: var(--neon-green-secondary);
+            border-color: var(--neon-green-primary);
+        }
+
+        .test-result.fail {
+            background: #ff4500; /* Laranja/Vermelho para Falha */
+            border-color: #ff0000;
+        }
+
+        .test-result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .test-result code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            display: block;
+            margin: 4px 0;
+            color: var(--bg-dark); /* Texto do código escuro */
+        }
+
+        .success-banner {
+            background: rgba(57, 255, 20, 0.2);
+            border: 2px solid var(--neon-green-primary);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+            color: var(--neon-green-primary);
+            font-weight: 600;
+            text-align: center;
+            text-shadow: 0 0 5px var(--neon-green-secondary);
+        }
+
+        .error-banner {
+            background: rgba(255, 69, 0, 0.2);
+            border: 2px solid #ff4500;
+            border-radius: 6px;
+            padding: 15px;
+            color: #ff4500;
+        }
+
+        .tips-box {
+            background: #0a0a0a;
+            border: 2px solid var(--neon-green-secondary);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 25px;
+            box-shadow: inset 0 0 10px rgba(57, 255, 20, 0.3);
+        }
+
+        .tips-box h3 {
+            color: var(--neon-green-primary);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            text-shadow: 0 0 4px var(--neon-green-primary);
+        }
+
+        .tips-box ul {
+            list-style: none;
+            color: var(--text-dim);
+        }
+
+        .tips-box li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .tips-box li:before {
+            content: ">>"; /* Ícone temático */
+            color: var(--neon-green-secondary);
+            position: absolute;
+            left: 0;
+        }
+
+        .icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Estruturas de Controle e Fluxo em JavaScript</h1>
+            <p>Pratique e aprenda resolvendo desafios de código</p>
+        </div>
+
+        <div class="tabs" id="tabs"></div>
+
+        <div class="content">
+            <div class="exercise-header">
+                <h2 id="exercise-title"></h2>
+                <p id="exercise-description"></p>
+            </div>
+
+            <div class="grid">
+                <div class="editor-section">
+                    <div class="section-header">
+                        <span class="section-label">💻 Seu Código:</span>
+                        <button class="reset-btn" onclick="resetCode()">↻ Resetar</button>
+                    </div>
+                    <textarea id="code-editor" spellcheck="false"></textarea>
+                    <div class="button-group">
+                        <button class="btn btn-run" onclick="runTests()">
+                            ▶ Executar Testes
+                        </button>
+                       <button class="btn btn-solution" onclick="verSolucao()">
+                            Ver Solução
+                        </button>
+                    </div>
+                </div>
+
+                <div class="results-section">
+                    <div class="section-header">
+                        <span class="section-label">📊 Resultados dos Testes:</span>
+                    </div>
+                    <div class="results-box" id="results">
+                        <div class="empty-results">
+                            Execute os testes para ver os resultados
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h3>💡 Dicas:</h3>
+                <ul>
+                    <li>Leia atentamente a descrição do exercício</li>
+                    <li>Complete o código nos locais indicados</li>
+                    <li>Teste seu código clicando em "Executar Testes"</li>
+                    <li>Se travar, clique em "Ver Solução" para aprender</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        const exercises = {
+            'if-else': {
+                title: 'IF / ELSE - Classificador de Idade',
+                description: 'Complete a função que classifica uma pessoa por faixa etária',
+                initialCode: `function classificarIdade(idade) {
+  // Complete o código abaixo:
+  if (idade < 0) {
+    return "Idade inválida";
+  } else if (/* adicione condição */) {
+    return "Criança";
+  } else if (/* adicione condição */) {
+    return "Adolescente";
+  } else if (/* adicione condição */) {
+    return "Adulto";
+  } else {
+    return "Idoso";
+  }
+}`,
+                solution: `function classificarIdade(idade) {
+  if (idade < 0) {
+    return "Idade inválida";
+  } else if (idade <= 12) {
+    return "Criança";
+  } else if (idade <= 17) {
+    return "Adolescente";
+  } else if (idade <= 59) {
+    return "Adulto";
+  } else {
+    return "Idoso";
+  }
+}`,
+                tests: [
+                    { input: 8, expected: 'Criança' },
+                    { input: 15, expected: 'Adolescente' },
+                    { input: 30, expected: 'Adulto' },
+                    { input: 65, expected: 'Idoso' },
+                    { input: -5, expected: 'Idade inválida' }
+                ],
+                functionName: 'classificarIdade'
+            },
+            'switch': {
+                title: 'SWITCH - Conversor de Dias',
+                description: 'Use switch para converter números em dias da semana',
+                initialCode: `function diaDaSemana(numero) {
+  // Use switch para retornar o dia correspondente
+  // 1 = Domingo, 2 = Segunda, etc.
+  switch (numero) {
+    // Complete aqui
+    
+    default:
+      return "Número inválido";
+  }
+}`,
+                solution: `function diaDaSemana(numero) {
+  switch (numero) {
+    case 1:
+      return "Domingo";
+    case 2:
+      return "Segunda-feira";
+    case 3:
+      return "Terça-feira";
+    case 4:
+      return "Quarta-feira";
+    case 5:
+      return "Quinta-feira";
+    case 6:
+      return "Sexta-feira";
+    case 7:
+      return "Sábado";
+    default:
+      return "Número inválido";
+  }
+}`,
+                tests: [
+                    { input: 1, expected: 'Domingo' },
+                    { input: 3, expected: 'Terça-feira' },
+                    { input: 7, expected: 'Sábado' },
+                    { input: 9, expected: 'Número inválido' }
+                ],
+                functionName: 'diaDaSemana'
+            },
+            'for': {
+                title: 'FOR - Soma de Números',
+                description: 'Use for para calcular a soma de 1 até N',
+                initialCode: `function somaAteN(n) {
+  let soma = 0;
+  // Use um loop for para somar de 1 até n
+  
+  return soma;
+}`,
+                solution: `function somaAteN(n) {
+  let soma = 0;
+  for (let i = 1; i <= n; i++) {
+    soma += i;
+  }
+  return soma;
+}`,
+                tests: [
+                    { input: 5, expected: 15 },
+                    { input: 10, expected: 55 },
+                    { input: 1, expected: 1 },
+                    { input: 100, expected: 5050 }
+                ],
+                functionName: 'somaAteN'
+            },
+            'while': {
+                title: 'WHILE - Contagem de Dígitos',
+                description: 'Use while para contar quantos dígitos tem um número',
+                initialCode: `function contarDigitos(numero) {
+  let count = 0;
+  numero = Math.abs(numero); // Remove sinal negativo
+  
+  // Use while para contar os dígitos
+  
+  return count === 0 ? 1 : count;
+}`,
+                solution: `function contarDigitos(numero) {
+  let count = 0;
+  numero = Math.abs(numero);
+  
+  while (numero >= 1) {
+    numero = Math.floor(numero / 10);
+    count++;
+  }
+  
+  return count === 0 ? 1 : count;
+}`,
+                tests: [
+                    { input: 12345, expected: 5 },
+                    { input: 7, expected: 1 },
+                    { input: 1000, expected: 4 },
+                    { input: -999, expected: 3 }
+                ],
+                functionName: 'contarDigitos'
+            },
+            'ternario': {
+                title: 'OPERADOR TERNÁRIO - Par ou Ímpar',
+                description: 'Use o operador ternário para verificar se é par ou ímpar',
+                initialCode: `function parOuImpar(numero) {
+  // Use operador ternário: condição ? valor_se_true : valor_se_false
+  return /* complete aqui */;
+}`,
+                solution: `function parOuImpar(numero) {
+  return numero % 2 === 0 ? "Par" : "Ímpar";
+}`,
+                tests: [
+                    { input: 4, expected: 'Par' },
+                    { input: 7, expected: 'Ímpar' },
+                    { input: 0, expected: 'Par' },
+                    { input: -3, expected: 'Ímpar' }
+                ],
+                functionName: 'parOuImpar'
+            }
+        };
+
+        let activeTab = 'if-else';
+
+        function init() {
+            renderTabs();
+            loadExercise(activeTab);
+        }
+
+        function renderTabs() {
+            const tabsContainer = document.getElementById('tabs');
+            tabsContainer.innerHTML = '';
+            
+            Object.keys(exercises).forEach(key => {
+                const button = document.createElement('button');
+                button.className = `tab ${key === activeTab ? 'active' : ''}`;
+                button.textContent = key.toUpperCase();
+                button.onclick = () => changeTab(key);
+                tabsContainer.appendChild(button);
+            });
+        }
+
+        function changeTab(tab) {
+            activeTab = tab;
+            renderTabs();
+            loadExercise(tab);
+            clearResults();
+        }
+
+        function loadExercise(tab) {
+            const exercise = exercises[tab];
+            document.getElementById('exercise-title').textContent = exercise.title;
+            document.getElementById('exercise-description').textContent = exercise.description;
+            document.getElementById('code-editor').value = exercise.initialCode;
+        }
+
+        function resetCode() {
+            loadExercise(activeTab);
+            clearResults();
+        }
+
+        function showSolution() {
+            const exercise = exercises[activeTab];
+            document.getElementById('code-editor').value = exercise.solution;
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '<div class="empty-results">Execute os testes para ver os resultados</div>';
+        }
+        function verSolucao(){
+                let caixaDeTexto = document.getElementById("code-editor")
+
+                caixaDeTexto.value = `if (idade < 0) {
+return "Idade inválida";
+} else if (idade <= 12) {
+return "Criança";
+} else if (idade <= 17) {
+return "Adolescente";
+} else if (idade <= 59) {
+return "Adulto";
+} else {
+return "Idoso";
+}
+}`
+            }
+
+        function runTests() {
+            const code = document.getElementById('code-editor').value;
+            const exercise = exercises[activeTab];
+            const resultsContainer = document.getElementById('results');
+            
+            try {
+                eval(code);
+                
+                const testResults = exercise.tests.map(test => {
+                    try {
+                        const func = eval(exercise.functionName);
+                        const result = func(test.input);
+                        return {
+                            input: test.input,
+                            expected: test.expected,
+                            actual: result,
+                            passed: result === test.expected
+                        };
+                    } catch (err) {
+                        return {
+                            input: test.input,
+                            expected: test.expected,
+                            actual: 'Erro',
+                            passed: false,
+                            error: err.message
+                        };
+                    }
+                });
+
+                displayResults(testResults);
+            } catch (error) {
+                resultsContainer.innerHTML = `
+                    <div class="error-banner">
+                        <strong>❌ Erro no código:</strong><br>
+                        ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        function displayResults(results) {
+            const resultsContainer = document.getElementById('results');
+            const allPassed = results.every(r => r.passed);
+            
+            let html = '';
+            
+            if (allPassed) {
+                html += '<div class="success-banner">🎉 Parabéns! Todos os testes passaram!</div>';
+            }
+            
+            results.forEach((result, idx) => {
+                const statusClass = result.passed ? 'pass' : 'fail';
+                const statusIcon = result.passed ? '✓' : '✗';
+                
+                html += `
+                    <div class="test-result ${statusClass}">
+                        <div class="test-result-header">
+                            <strong>Teste ${idx + 1}</strong>
+                            <span>${statusIcon}</span>
+                        </div>
+                        <code><strong>Input:</strong> ${JSON.stringify(result.input)}</code>
+                        <code><strong>Esperado:</strong> ${JSON.stringify(result.expected)}</code>
+                        <code><strong>Obtido:</strong> ${JSON.stringify(result.actual)}</code>
+                        ${result.error ? `<code style="color: #721c24;"><strong>Erro:</strong> ${result.error}</code>` : ''}
+                    </div>
+                `;
+            });
+            
+            
+
+            resultsContainer.innerHTML = html;
+        }
+            
+        init();
+    </script>
+</body>
+</html>
