@@ -19,6 +19,7 @@ const inputId = document.getElementById("input-Id")
 let dinos = []
 
 
+//Botões
 function resetarInputs(){
     //Resetar inputs
     inputNome.value = ""
@@ -30,7 +31,9 @@ function resetarInputs(){
     inputNome.focus()
 }
 function testar(){
-    dinos = [{
+
+    dinos = [
+    {
         id: 162162161,
         nome: "Dino1",
         cor: "Vermelho",
@@ -68,8 +71,6 @@ function testar(){
     ]
     console.log(dinos)
 }
-
-
 function cadastrarDino(){
     //Dino a ser adicionado
     const novoDino = {
@@ -105,7 +106,6 @@ function mostrarTodosOsDinos(){
         `
     }
 }
-
 function pesquisar(){
     let nomeProcurado = inputNome.value
 
@@ -146,4 +146,14 @@ function deletarDino(){
     }
     mostrarTodosOsDinos()
     resetarInputs()
+}
+
+
+//Local storage
+function salvarDados(){
+    localStorage.setItem("dinos", JSON.stringify(dinos))
+}
+function carregarDados(){
+    dinos = JSON.parse(localStorage.getItem("dinos"))
+    console.log(dinos)
 }
